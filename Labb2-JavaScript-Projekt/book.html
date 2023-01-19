@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>booking page</title>
+    <!-- custom style-->
+    <link rel="stylesheet" href="book.css" />
+    <!--Bootstarp style-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!--Font awesome icon cdn-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!--Navbar-->
+
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">TRIO'S Kitchen</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#booking"
+              >Booking</a
+            >
+            <a class="nav-link" href="#food-menu">Menu</a>
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--Hero Section-->
+    <section id="booking" class="hero-image">
+      <div class="hero-text">
+        <h1>Reserve a table</h1>
+        <h4 id="usp-text">
+          It's time to treat yourself.
+          Let's book you a table - the Trio way.
+        </h4>
+
+        <button id="reseve-btn" onclick="showForm()">Book here</button>
+        <!--Booking form starts here-->
+
+        <form
+          action="#"
+          method="get"
+          class="booking-form"
+          id="myForm"
+          style="display: none"
+        >
+          <div class="form-c">
+            <label for="name"> Enter Your Name</label>
+            <input type="text" class="input" id="name" placeholder="John Doe" />
+
+            <p id="nameError"></p>
+          </div>
+          <div class="form-c">
+            <label for="email">Enter Your Email</label>
+            <input
+              type="email"
+              class="input"
+              id="email"
+              placeholder="john.doe@email.com"
+            />
+            <p id="emailError"></p>
+          </div>
+
+          <div class="form-c">
+            <label for="phone">Enter Your phone number</label>
+            <input
+              type="tel"
+              class="input"
+              id="phone"
+              placeholder="07 508 666 22"
+            />
+            <p id="phoneError"></p>
+          </div>
+          <label for="booking-time">
+
+<input type="datetime-local" id="booking-time"
+       name="booking-time" value="2022-11-01T18:00"
+       min="2022-11-01T00:00" max="2022-12-30T00:00" required>
+
+          <div>
+            <label for="guest"> Guests</label>
+            <input
+              class="input"
+              type="number"
+              class="input"
+              id="guest"
+              placeholder="2"
+              min="1"
+            />
+          </div>
+
+          <div>
+            <label for="text">Anything else?</label>
+            <textarea
+              name=""
+              id="text"
+              cols="30"
+              rows="10"
+              placeholder="Tell us anything else that might be important."
+            ></textarea>
+          </div>
+          <div>
+            <button type="submit" id="btn" >Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!--Booking form ends here-->
+
+    <!-- Menu section -->
+    <section id="food-menu">
+      <div class="container">
+        <div class="menu-wrapper">
+          <div class="menu-search">
+            <h1>Our Menu</h1>
+            <p id="menu-para">
+              Search for the dish you want.
+            </p>
+
+            <div class="menu-search-box">
+              <input
+                type="text"
+                class="search-control"
+                placeholder="Search Menu"
+                id="search-input"
+              />
+              <button type="submit" class="search-btn" id="search-btn">
+                Go
+              </button>
+            </div>
+          </div>
+
+          <div class="menu-result">
+            <h2 class="title">Your Search Results:</h2>
+            <div id="menu"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer section -->
+    <!-- Contact Section -->
+    <div id="contact" class="section contact">
+      <div class="contact-container">
+        <!-- Contact Item  -->
+        <div class="contact-item">
+          <div class="contact-list">
+            <div class="title">
+              <h2>FIND US</h2>
+            </div>
+            <div class="area-container"></div>
+
+            <select id="countries" name="countries"></select>
+          </div>
+          <div class="contact-list">
+            <div class="title">
+              <h2>BOOKING</h2>
+            </div>
+            <div class="info">
+              <p>
+                <a href="book.html"><i> Reserve a table here </i></a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <div class="title">
+              <h2>CONTACT</h2>
+            </div>
+            <div class="info">
+              <p><a href="tel:08 444 555 66">Tel: 08 444 555 66</a></p>
+              <p style="cursor: pointer" onclick="sendEmail()">
+                E-mail: trio.jacgitsar@gmail.com
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <div class="title">
+              <h2>OPENING HOURS</h2>
+            </div>
+            <div class="info-2">
+              <p>Monday-Friday: 11.00 - 22.00</p>
+              <p>Saturday: 12.00 – 22.00</p>
+              <p>Sunday: Closed</p>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <div class="title">
+              <h2>OPENING HOURS FOR HOLIDAYS</h2>
+            </div>
+            <div class="info">
+              <p>Monday, 6 juni: 12.00 - 21.00</p>
+              <p>Summer closed: 24 Juni- 10 Juli</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map  -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d130264.7667697573!2d17.84127012504931!3d59.326492802880004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f763119640bcb%3A0xa80d27d3679d7766!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sbd!4v1667360374628!5m2!1sen!2sbd"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="section">
+      <p>
+        copyright &copy; Trio Kitchen
+        <span id="date"></span>. all rights reserved
+      </p>
+    </footer>
+
+    <!--Bootstarp javascript-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <!--Custom Javascript-->
+    <script src="book.js"></script>
+  </body>
+</html>

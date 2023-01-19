@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Restaurant project using vanilla javascript</title>
+
+    <!-- custom style-->
+    <link rel="stylesheet" href="style.css" />
+
+    <!--Bootstarp style-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <!-- Script for chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <!--font-awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!--Navbar-->
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#home">TRIO'S Kitchen</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="book.html"
+              >Menu</a
+            >
+            <a class="nav-link" href="#food-gallery">Gallery</a>
+            <a class="nav-link" href="#about-us">About Us</a>
+            <a class="nav-link" href="#contact">Contact US</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero Section-->
+    <section id="home" class="hero-image">
+      <div class="hero-text">
+        <h1>Welcome to TRIO'S Kitchen</h1>
+        <h4 id="usp-text">
+          For those with pure food indulgence in mind, come to TRIO'S Kitchen and sate your desires with our fresh and exciting, seasonally inspired Indian, Korean and Philippines dishes. We love food, lots of different food, just like you…
+        </h4>
+        We have a humble beginning since year 2015 in Restaurant Busines.
+      </div>
+    </section>
+
+    <!-- Slider Section  -->
+
+    <section id="food-gallery" class="food-gallery">
+      <div class="slider">
+        <div class="slides">
+          <!--Radio buttons starts-->
+          <input type="radio" name="radio-button" id="radio1" />
+          <input type="radio" name="radio-button" id="radio2" />
+          <input type="radio" name="radio-button" id="radio3" />
+          <input type="radio" name="radio-button" id="radio4" />
+          <!--Radio buttons ends-->
+
+          <div class="slide first">
+            <!--Slide images starts-->
+            <img src="image/hotpot-1255014_1920.jpg" alt="food" />
+          </div>
+          <div class="slide">
+            <img src="image/chicken-lolipops-2097987_1920.jpg" alt="food" />
+          </div>
+          <div class="slide">
+            <img src="image/samosa-7180078_1920.jpg" alt="food" />
+          </div>
+          <div class="slide">
+            <img src="image/cake-1971552_1920.jpg" alt="food" />
+          </div>
+          <!--Slide images ends-->
+
+          <!--Auto navigation starts-->
+          <div class="auto-navigation">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+            <div class="auto-btn4"></div>
+          </div>
+          <!--Auto navigation ends-->
+        </div>
+
+        <div class="manual-navigation">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us section -->
+
+    <section id="about-us" class="about-image">
+      <div class="about-wrap">
+        <div class="about-text">
+          <div id="about">
+
+          </div>
+
+
+          <button id="about-btn" onclick="showForm()">Growth</button>
+          <div class="chart-container" id="div-id" style="display: none">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer section -->
+    <!-- Contact Section -->
+    <div id="contact" class="section contact">
+      <div class="contact-container">
+        <!-- Contact Item  -->
+        <div class="contact-item">
+          <div class="contact-list">
+            <div class="title">
+              <h2>FIND US</h2>
+            </div>
+            <div class="area-container"></div>
+            <select id="countries" name="countries"></select>
+          </div>
+          <div class="contact-list">
+            <div class="title">
+              <h2>BOOKING</h2>
+            </div>
+            <div class="info">
+              <p>
+                <a href="book.html"><i> Reserve a table here </i></a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <div class="title">
+              <h2>CONTACT</h2>
+            </div>
+            <div class="info">
+              <p><a href="tel:08 444 555 66">Tel: 08 444 555 66</a></p>
+              <p style="cursor: pointer" onclick="sendEmail()">
+                E-mail: trio.jacgitsar@gmail.com
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <div class="title">
+              <h2>OPENING HOURS</h2>
+            </div>
+            <div class="info-2">
+              <p>Monday-Friday: 11.00 - 22.00</p>
+              <p>Saturday: 12.00 – 22.00</p>
+              <p>Sunday: Closed</p>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <div class="title">
+              <h2>OPENING HOURS FOR HOLIDAYS</h2>
+            </div>
+            <div class="info">
+              <p>Monday, 6 juni: 12.00 - 21.00</p>
+              <p>Summer closed: 24 Juni- 10 Juli</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map  -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d130264.7667697573!2d17.84127012504931!3d59.326492802880004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f763119640bcb%3A0xa80d27d3679d7766!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sbd!4v1667360374628!5m2!1sen!2sbd"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Customer review-->
+    <section id="reviewSec">
+      <h3 class="text-primary">Feedbacks</h3>
+    <div class="col-md-3"></div>
+
+    <div id="revDiv"  class="col-md-6 well">
+
+
+
+      <hr style="border-top:1px dotted #ccc;"/>
+
+      <div  class="col-md-4">
+
+        <div class="form-group">
+
+          <label>User:</label>
+
+          <input type="text" id="user" class="form-control" />
+
+        </div>
+        <div>
+
+          <h3>Rating:</h3>
+
+          <span id="1" style="font-size:30px; cursor:pointer;"  class="fa fa-star" onmouseover="startRating(this)" startRating="starmark(this)" ></span>
+
+          <span id="2"  style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)" startRating="starmark(this)"></span>
+
+          <span id="3"  style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)" startRating="starmark(this)"></span>
+
+          <span id="4"  style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)" startRating="starmark(this)"></span>
+
+          <span id="5"  style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)" startRating="starmark(this)"></span>
+
+        </div>
+
+        <br />
+
+        <div class="form-group">
+
+          <h3>Review:</h3>
+
+          <textarea id="review" class="form-control" style="resize:none; height:100px;"></textarea>
+
+        </div>
+
+        <center><button id="revBtn"  class="btn btn-success" onclick="submitRate()">Submit</button> </center>
+
+      </div>
+
+      <div class="col-md-6">
+
+        <div id="result"></div>
+
+      </div>
+
+    </div>
+  </section>
+    <!-- footer -->
+    <footer class="section">
+      <p>
+        copyright &copy; Trio Kitchen
+        <span id="date"></span>. all rights reserved
+      </p>
+    </footer>
+
+    <!--Bootstarp javascript-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <!--Custom Javascript-->
+    <script src="index.js"></script>
+  </body>
+</html>
